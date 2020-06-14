@@ -1,15 +1,25 @@
 package com.example.demo.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
+@Table (name="Alien")
 public class Alien {
 
 	@Id
+//	@GeneratedValue		//for auto increment 
 	private int aid;
+	
+	@Column (name="aname")
 	private String aname;
+	
+	@Column (name="tech")
 	private String tech;
+	
 	public int getAid() {
 		return aid;
 	}
