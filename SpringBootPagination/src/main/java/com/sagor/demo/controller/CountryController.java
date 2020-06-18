@@ -12,15 +12,14 @@ import com.sagor.demo.model.Country;
 import com.sagor.demo.service.CountryService;
 
 @RestController
-@RequestMapping(path="/page")
-public class PageController {
+@RequestMapping(path="/countries")
+public class CountryController {
 
 	@Autowired
 	CountryService service;
 	
 	@GetMapping(path="/{pageNo}/{pageSize}")
-	public List<Country> getPaginatedList(@PathVariable("pageNo") int pageNo, @PathVariable("pageSize") int pageSize){
-		return service.findPaginated(pageNo, pageSize);
-		
+	public List<Country> getCountryList(@PathVariable("pageNo") int pageNo, @PathVariable("pageSize") int pageSize){
+		return service.findPaginated(pageNo, pageSize);		
 	}
 }
