@@ -1,22 +1,21 @@
 package com.example.SpringBootLiquibase;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@RequestMapping(path="/")
 public class PersonController {
 
     @Autowired
     private PersonRepository repo;
 
     @PostMapping(path="person", consumes = {"application/json"})
-    public Person createPerson(Person person){
+    public Person createPerson(@RequestBody Person person){
+//        System.out.println("person id: " + person.getId());
+//        System.out.println("person name: " + person.getName());
+//        System.out.println("person height: " + person.getHeight());
         repo.save(person);
         return person;
     }
