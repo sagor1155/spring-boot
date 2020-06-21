@@ -13,10 +13,13 @@ public class Country {
 	@Id
 	@GeneratedValue
 	private int id;
+	
 	@Column(name="name")
 	private String name;
+	
 	@Column(name="population")
 	private long population;
+	
 	public int getId() {
 		return id;
 	}
